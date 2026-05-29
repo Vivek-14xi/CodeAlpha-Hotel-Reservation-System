@@ -58,8 +58,10 @@ public class Room {
    public String getAmenities(){
        return amenities;
    }
+    public double    getPricePerNight(){ return roomType.getPricePerNight(); }
 
-   public void setAvailable(boolean available){
+
+    public void setAvailable(boolean available){
        this.isAvailable=available;
    }
    public String getSummary(){

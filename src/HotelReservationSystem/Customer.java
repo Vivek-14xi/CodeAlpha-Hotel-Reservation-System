@@ -1,11 +1,13 @@
 package HotelReservationSystem;
 
 public class Customer {
+
     private final String customerId;
     private String name;
     private String phone;
     private String email;
     private String idProof;
+
     private static int idCounter = 1000;
 
     public Customer(String name, String phone, String email, String idProof) {
@@ -15,7 +17,6 @@ public class Customer {
         setEmail(email);
         this.idProof = idProof;
     }
-
     public Customer(String customerId, String name, String phone, String email, String idProof) {
         this.customerId = customerId;
         this.name       = name;
@@ -24,19 +25,19 @@ public class Customer {
         this.idProof    = idProof;
     }
 
-    public String getCustomerId() {
-        return customerId;
+    public String getCustomerId(){
+         return customerId;
     }
-    public String getName()       {
+    public String getName(){
         return name;
     }
-    public String getPhone()      {
+    public String getPhone(){
         return phone;
     }
-    public String getEmail()      {
+    public String getEmail(){
         return email;
     }
-    public String getIdProof()    {
+    public String getIdProof(){
         return idProof;
     }
 
@@ -45,22 +46,18 @@ public class Customer {
             throw new IllegalArgumentException("Customer name cannot be empty.");
         this.name = name.trim();
     }
-
     public void setPhone(String phone) {
+        // Accept exactly 10 digits
         if (phone == null || !phone.matches("\\d{10}"))
             throw new IllegalArgumentException("Phone must be exactly 10 digits.");
         this.phone = phone;
     }
-
     public void setEmail(String email) {
         if (email == null || !email.contains("@"))
             throw new IllegalArgumentException("Invalid email address.");
         this.email = email.trim().toLowerCase();
     }
-
-    public void setIdProof(String idProof) {
-        this.idProof = idProof;
-    }
+    public void setIdProof(String idProof) { this.idProof = idProof; }
 
     public String getDetails() {
         return String.format(
@@ -76,7 +73,6 @@ public class Customer {
     public String toCSV() {
         return customerId + "," + name + "," + phone + "," + email + "," + idProof;
     }
-
     @Override
     public String toString() {
         return "Customer[" + customerId + ", " + name + "]";
